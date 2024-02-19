@@ -8,6 +8,7 @@ import Nav from "components/Nav.js";
 import Home from "components/Home.js";
 import Header from "components/Header.js";
 import Header2 from "components/Header2.js";
+import Hero from "components/Hero.js";
 
 export default function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -19,6 +20,7 @@ export default function App() {
         <Header />
         <Header2 />
         <Nav />
+        <Hero/>
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
