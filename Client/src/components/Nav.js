@@ -4,10 +4,7 @@ import {
   Button,
   Container,
   IconButton,
-  List,
   ListItem,
-  ListItemButton,
-  ListItemIcon,
   ListItemText,
   Menu,
   MenuItem,
@@ -15,26 +12,16 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import WindowIcon from "@mui/icons-material/Window";
-import { Close, ContentCut, KeyboardArrowRight } from "@mui/icons-material";
+import { Close, KeyboardArrowRight, InsertLink } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useTheme } from "@emotion/react";
 import Drawer from "@mui/material/Drawer";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import NavLinks from "./NavLinks";
+import { red } from "@mui/material/colors";
 
 export default function Nav() {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const isLargeScreen = useMediaQuery("(min-width:992px)");
   const theme = useTheme();
   const [state, setState] = useState({
     top: false,
@@ -51,12 +38,32 @@ export default function Nav() {
     }
     setState({ ...state, [anchor]: open });
   };
-  const [expanded, setExpanded] = useState(false);
-  // @ts-ignore
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleClick = (event, index) => {
+    setAnchorEl(event.currentTarget);
   };
-  const isLargeScreen = useMediaQuery("(min-width:769px)");
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+  const menuItems = [
+    {
+      title: "Main Link",
+      url: "#",
+      icon: <InsertLink />,
+    },
+    {
+      title: "Main Link 2",
+      url: "#",
+      icon: <InsertLink />,
+    },
+    {
+      title: "Main Link 3",
+      url: "#",
+      icon: <InsertLink />,
+    },
+  ];
+
   return (
     <Box sx={{ paddingBottom: "20px" }}>
       <Container
@@ -68,67 +75,65 @@ export default function Nav() {
       >
         <Box>
           <Button
-            id="basic-button"
-            aria-controls={open ? "basic-menu" : undefined}
+            id="fade-button"
+            aria-controls={open ? "fade-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
-            // @ts-ignore
             sx={{
               color: theme.palette.myColor.main,
               width: "278px",
               bgcolor: theme.palette.neutral.light,
+              [theme.breakpoints.down("sm")]: {
+                width: "170px",
+              },
             }}
           >
             <WindowIcon sx={{ mr: "5px" }} />
-            <Typography sx={{fontWeight:"600", textTransform:"capitalize"}}>Categories</Typography>
+            <Typography sx={{ fontWeight: "600", textTransform: "capitalize" }}>
+              Categories
+            </Typography>
             <Box flexGrow={1} />
             <KeyboardArrowRight />
           </Button>
           <Menu
-            id="basic-menu"
+            id="fade-menu"
+            MenuListProps={{
+              "aria-labelledby": "fade-button",
+            }}
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
-            MenuListProps={{
-              "aria-labelledby": "basic-button",
+            sx={{
+              ".MuiPaper-root": {
+                width: "277px",
+                mt: 1,
+                [theme.breakpoints.down("sm")]: {
+                  width: "170px",
+                },
+              },
             }}
-            sx={{ ".MuiPaper-root ": { width: "277px", mt:1 } }}
           >
-            <MenuItem onClick={handleClose}>
-              <ListItemIcon>
-                <ContentCut fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>Cut</ListItemText>
-            </MenuItem>
-            <MenuItem onClick={handleClose}>
-              <ListItemIcon>
-                <ContentCut fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>Cut</ListItemText>
-            </MenuItem>
-            <MenuItem onClick={handleClose}>
-              <ListItemIcon>
-                <ContentCut fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>Cut</ListItemText>
-            </MenuItem>
-            <MenuItem onClick={handleClose}>
-              <ListItemIcon>
-                <ContentCut fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>Cut</ListItemText>
-            </MenuItem>
-            <MenuItem onClick={handleClose}>
-              <ListItemIcon>
-                <ContentCut fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>Cut</ListItemText>
-            </MenuItem>
+            {menuItems.map((item, index) => (
+              <MenuItem key={index}>
+                <ListItem
+                  component="a"
+                  href={item.url}
+                  sx={{
+                    color: theme.palette.text.primary,
+                    gap: 1,
+                    ":hover": { color: red[800] },
+                  }}
+                >
+                  {item.icon}
+                  <ListItemText primary={item.title} />
+                </ListItem>
+              </MenuItem>
+            ))}
           </Menu>
         </Box>
         {isLargeScreen ? (
-          <Box>
+          <Box zIndex={2}>
             <NavLinks />
           </Box>
         ) : (
@@ -140,7 +145,9 @@ export default function Nav() {
           anchor={"right"}
           open={state["right"]}
           onClose={toggleDrawer("right", false)}
-          sx={{ ".MuiDrawer-paperAnchorRight  ": { height: "100%" , width: "100%"} }}
+          sx={{
+            ".MuiDrawer-paperAnchorRight  ": { height: "100%", width: "100%" },
+          }}
         >
           <Box sx={{ ml: "auto", p: "10px" }}>
             <IconButton
@@ -150,42 +157,8 @@ export default function Nav() {
               <Close />
             </IconButton>
           </Box>
-          <Box sx={{ width: "50%", mx: "auto" }}>
-            {[
-              { mainlink: "Home", sublink: ["link1", "link2", "link3"] },
-              { mainlink: "Clothes", sublink: ["link1", "link2"] },
-              { mainlink: "Shoes", sublink: ["link1"] },
-            ].map((item) => {
-              return (
-                <Accordion
-                  key={item.mainlink}
-                  // @ts-ignore
-                  expanded={expanded === `panel${item.mainlink}`}
-                  onChange={handleChange(`panel${item.mainlink}`)}
-                >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1bh-content"
-                    id="panel1bh-header"
-                  >
-                    <Typography>{item.mainlink}</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <List sx={{ py: 0, my: 0 }}>
-                      {item.sublink.map((link) => {
-                        return (
-                          <ListItem key={link} sx={{ py: 0, my: 0 }}>
-                            <ListItemButton>
-                              <ListItemText primary={link} />
-                            </ListItemButton>
-                          </ListItem>
-                        );
-                      })}
-                    </List>
-                  </AccordionDetails>
-                </Accordion>
-              );
-            })}
+          <Box sx={{ width: "90%", mx: "auto" }}>
+            <NavLinks />
           </Box>
         </Drawer>
       </Container>

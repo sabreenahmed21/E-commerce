@@ -1,8 +1,17 @@
 import { Box } from "@mui/material";
 import "../index.css";
+import Hero from "./Hero";
+import Nav from "components/Nav.js";
+import Header from "components/Header.js";
+import Header2 from "components/Header2.js";
+
 export default function Home() {
   return (
     <>
+      <Header />
+      <Header2 />
+      <Nav />
+      <Hero />
       <Box sx={{ position: "relative" }}>
         <Box
           className="pink__gradient"

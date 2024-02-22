@@ -1,10 +1,11 @@
-import { Stack } from "@mui/material";
+import { Stack, useMediaQuery } from "@mui/material";
 import DataLinks from "./DataLinks";
 
 export default function NavLinks() {
+  const isLargeScreen = useMediaQuery("(min-width:992px)");
   return (
     <>
-      <Stack direction={"row"} gap={2}>
+      <Stack  direction={isLargeScreen ? "row" : "column"} spacing={2}>
         <DataLinks
           data={[
             {
@@ -49,7 +50,7 @@ export default function NavLinks() {
               title: "full screen menu",
               links: [
                 {
-                  label: "Link 3",
+                  label: "Link 6",
                   url: "#",
                   subLinks: [
                     { label: "sublink3", url: "#" },
@@ -60,9 +61,9 @@ export default function NavLinks() {
                     { label: "sublink8", url: "#" },
                   ],
                 },
-                { label: "Link 4", url: "#" },
+                { label: "Link 7", url: "#" },
                 {
-                  label: "Link 5",
+                  label: "Link 8",
                   url: "#",
                   subLinks: [
                     { label: "sublink3", url: "#" },
@@ -78,16 +79,16 @@ export default function NavLinks() {
               rightAligned: true,
               links: [
                 {
-                  label: "Link 3",
+                  label: "Link9",
                   url: "#",
                   subLinks: [
                     { label: "sublink3", url: "#" },
                     { label: "sublink4", url: "#" },
                   ],
                 },
-                { label: "Link 4", url: "#" },
+                { label: "Link10", url: "#" },
                 {
-                  label: "Link 5",
+                  label: "Link11",
                   url: "#"
                 },
               ],
@@ -97,12 +98,12 @@ export default function NavLinks() {
               rightAligned: true,
               links: [
                 {
-                  label: "Link 3",
+                  label: "Link12",
                   url: "#"
                 },
-                { label: "Link 4", url: "#" },
+                { label: "Link13", url: "#" },
                 {
-                  label: "Link 5",
+                  label: "Link14",
                   url: "#",
                   subLinks: [
                     { label: "sublink3", url: "#" },
@@ -116,16 +117,16 @@ export default function NavLinks() {
               rightAligned: true,
               links: [
                 {
-                  label: "Link 3",
+                  label: "Link15",
                   url: "#",
                   subLinks: [
                     { label: "sublink3", url: "#" },
                     { label: "sublink4", url: "#" },
                   ],
                 },
-                { label: "Link 4", url: "#" },
+                { label: "Link16", url: "#" },
                 {
-                  label: "Link 5",
+                  label: "Link17",
                   url: "#",
                   subLinks: [
                     { label: "sublink3", url: "#" },

@@ -18,7 +18,7 @@ import { setMode } from "slices/GlobalSlice";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
 
 const options = ["AR", "EN"];
@@ -43,7 +43,7 @@ export default function Header() {
   };
 
   return (
-    <Box sx={{ bgcolor: theme.palette.secondary.main , color: "#fff" }}>
+    <Box sx={{ bgcolor: theme.palette.secondary.main, color: "#fff" }}>
       <Container>
         <Stack direction={"row"} alignItems={"center"}>
           <Typography
@@ -57,23 +57,27 @@ export default function Header() {
           >
             Hot
           </Typography>
-          <Typography variant="body2">Free Express Shippping</Typography>
+          <Typography variant="body2" sx={{ [theme.breakpoints.down("sm")]: { display: 'none'} }}>Free Express Shippping</Typography>
           <Box flexGrow={1} />
           <IconButton
             onClick={() => {
-              const newMode = theme.palette.mode === "dark" ? "light" : "dark";
+              const newMode = theme.palette.mode === "light" ? "dark" : "light";
               dispatch(setMode(newMode));
               localStorage.setItem("currentMode", newMode);
             }}
           >
-            {theme.palette.mode === "dark" ? (
-              <DarkMode sx={{fontSize:"16px"}} />
+            {theme.palette.mode === "light" ? (
+              <LightMode sx={{ fontSize: "16px", color: "#fff" }} />
             ) : (
-              <LightMode sx={{fontSize:"16px", color:"#fff"}} />
+              <DarkMode sx={{ fontSize: "16px" }} />
             )}
           </IconButton>
           <Box>
-            <List component="nav" aria-label="Device settings" sx={{p:0, m:0}}>
+            <List
+              component="nav"
+              aria-label="Device settings"
+              sx={{ p: 0, m: 0 }}
+            >
               <ListItem
                 id="lock-button"
                 aria-haspopup="listbox"
@@ -81,10 +85,13 @@ export default function Header() {
                 aria-label="when device is locked"
                 aria-expanded={open ? "true" : undefined}
                 onClick={handleClickListItem}
-                sx={{ "&:hover": { cursor: "pointer" }, px:1 }}
+                sx={{ "&:hover": { cursor: "pointer" }, px: 1 }}
               >
-                <ListItemText secondary={options[selectedIndex]} sx={{".MuiTypography-root": {color:"#fff"}}}/>
-                <ExpandMoreIcon sx={{fontSize:"16px"}}/>
+                <ListItemText
+                  secondary={options[selectedIndex]}
+                  sx={{ ".MuiTypography-root": { color: "#fff" } }}
+                />
+                <ExpandMoreIcon sx={{ fontSize: "16px" }} />
               </ListItem>
             </List>
             <Menu
@@ -108,9 +115,9 @@ export default function Header() {
               ))}
             </Menu>
           </Box>
-          <FacebookIcon sx={{fontSize:"16px", mr:1}}/>
-          <InstagramIcon sx={{fontSize:"16px", mr:1}} />
-          <XIcon sx={{fontSize:"16px"}} />
+          <FacebookIcon sx={{ fontSize: "16px", mr: 1 }} />
+          <InstagramIcon sx={{ fontSize: "16px", mr: 1 }} />
+          <XIcon sx={{ fontSize: "16px" }} />
         </Stack>
       </Container>
     </Box>
