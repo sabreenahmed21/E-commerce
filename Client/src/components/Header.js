@@ -57,7 +57,12 @@ export default function Header() {
           >
             Hot
           </Typography>
-          <Typography variant="body2" sx={{ [theme.breakpoints.down("sm")]: { display: 'none'} }}>Free Express Shippping</Typography>
+          <Typography
+            variant="body2"
+            sx={{ [theme.breakpoints.down("sm")]: { display: "none" } }}
+          >
+            Free Express Shippping
+          </Typography>
           <Box flexGrow={1} />
           <IconButton
             onClick={() => {

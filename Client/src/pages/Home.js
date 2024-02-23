@@ -1,25 +1,23 @@
 import { Box } from "@mui/material";
 import "../index.css";
-import Hero from "./Hero";
+import Hero from "../components/Hero";
 import Nav from "components/Nav.js";
 import Header from "components/Header.js";
 import Header2 from "components/Header2.js";
+import Feature from "components/Feature";
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <Header2 />
-      <Nav />
-      <Hero />
+    <Box sx={{ paddingBottom:'40px'}}>
       <Box sx={{ position: "relative" }}>
         <Box
           className="pink__gradient"
           sx={{
             position: "absolute",
-            width: "80%",
-            height: "50vh",
-            borderRadius: "50%",
+            width: "70%",
+            height: "20vh",
+            borderRadius: "40%",
+            top: 0,
             right: 0,
             zIndex: "-100",
           }}
@@ -28,9 +26,9 @@ export default function Home() {
           className="white__gradient "
           sx={{
             position: "absolute",
-            width: "80%",
-            height: "50vh",
-            borderRadius: "80%",
+            width: "45%",
+            height: "33vh",
+            borderRadius: "40%",
             top: "0px",
             zIndex: "-100",
           }}
@@ -39,15 +37,19 @@ export default function Home() {
           className="blue__gradient"
           sx={{
             position: "absolute",
-            width: "100%",
-            height: "30vh",
-            borderRadius: "50%",
-            top: "-100px",
+            width: "72%",
+            height: "20vh",
+            top: "0px",
             right: 0,
             zIndex: "-100",
           }}
         />
       </Box>
-    </>
+      <Header />
+      <Header2 />
+      <Nav />
+      <Hero />
+      <Feature/>
+    </Box>
   );
 }

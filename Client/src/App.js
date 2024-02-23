@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import { useSelector } from "react-redux";
 import { themeSettings } from "./Theme.js";
 import { useMemo } from "react";
-import Home from "components/Home.js";
+import Home from "pages/Home.js";
 
 export default function App() {
   const mode = useSelector((state) => state.global.mode);

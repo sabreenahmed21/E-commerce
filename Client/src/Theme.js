@@ -15,15 +15,7 @@ const tokensDark = {
     1000: "#000000",
   },
   primary: {
-    // blue
-    100: "#d3d4de",
-    200: "#a6a9be",
-    300: "#7a7f9d",
     400: "#4d547d",
-    500: "#21295c",
-    600: "#191F45",
-    700: "#141937",
-    800: "#23252D",
     900: "#00092f",
   },
   secondary: {
@@ -66,7 +58,7 @@ export const themeSettings = (mode) => {
             ...tokensLight.secondary,
             main: tokensDark.secondary[0],
           },
-          neutral: {
+          grey: {
             ...tokensLight.grey,
             main: tokensDark.grey[500],
             light: tokensDark.grey[200],
@@ -74,11 +66,11 @@ export const themeSettings = (mode) => {
           background: {
             default: tokensDark.grey[10],
             alt: tokensDark.grey[0],
-            hero:"#F4F6F5"
           },
-          myColor: {
-            main: "#373F51",
-          },
+          text: {
+            light: '#2b3445',
+            main: "#1b263b"
+          }
         }
         :{
           // palette values for dark mode
@@ -91,18 +83,19 @@ export const themeSettings = (mode) => {
             ...tokensDark.secondary,
             main: tokensDark.secondary[100],
           },
-          neutral: {
+          grey: {
             ...tokensDark.grey,
             main: tokensDark.grey[500],
             light: tokensDark.grey[900],
           },
           background: {
             default: tokensDark.primary[900],
-            alt: tokensDark.primary[900],
+            alt: tokensDark.grey[1000],
           },
-          myColor: {
-            main: "#fff",
-          },
+          text: {
+            light: '#fff',
+            main: "#1b263b"
+          }
         }),
     },
   };

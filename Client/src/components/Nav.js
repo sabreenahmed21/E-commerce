@@ -81,9 +81,9 @@ export default function Nav() {
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
             sx={{
-              color: theme.palette.myColor.main,
+              color: theme.palette.text.light,
               width: "278px",
-              bgcolor: theme.palette.neutral.light,
+              bgcolor: theme.palette.grey.light,
               [theme.breakpoints.down("sm")]: {
                 width: "170px",
               },

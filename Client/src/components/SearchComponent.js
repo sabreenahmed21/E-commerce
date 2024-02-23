@@ -45,6 +45,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up("sm")]: {
       width: "30ch",
     },
+    [theme.breakpoints.down("sm")]: {
+      width: "14ch",
+    },
   },
 }));
 
@@ -75,7 +78,7 @@ export default function SearchComponent() {
         borderRadius: "5px",
         flexGrow: "0.4",
         minWidth: isLargeScreen ? "300px" : "90vw",
-        bgcolor: theme.palette.neutral.light,
+        bgcolor: theme.palette.grey.light,
       }}
     >
       <SearchIconWrapper>

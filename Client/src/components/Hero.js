@@ -28,14 +28,14 @@ export default function Hero() {
   const theme = useTheme();
   const isLargeScreen = useMediaQuery("(min-width:900px)");
   return (
-    <Box sx={{ backgroundColor: theme.palette.background.hero }}>
+    <Box sx={{ backgroundColor: theme.palette.background.default }}>
       <Container
         sx={{
           display: isLargeScreen ? "grid" : "flex",
           gridTemplateColumns: isLargeScreen ? "3fr 1fr" : "none",
           alignItems: "center",
           justifyContent: "center",
-          p: "50px 0",
+          p: "20px 0",
           gap: 2,
         }}
       >
@@ -70,7 +70,7 @@ export default function Hero() {
                   <Typography
                     variant="caption"
                     sx={{
-                      color: "#1B263B",
+                      color: theme.palette.text.main,
                       fontSize: "25px",
                       textTransform: "uppercase",
                       [theme.breakpoints.down("sm")]: {
@@ -85,7 +85,7 @@ export default function Hero() {
                     sx={{
                       fontSize: "50px",
                       fontWeight: "700",
-                      color: "#1f2937",
+                      color:  theme.palette.text.main,
                       lineHeight: "65px",
                       textTransform: "uppercase",
                       letterSpacing: "3px",
@@ -105,7 +105,7 @@ export default function Hero() {
                   <Typography
                     variant="h4"
                     sx={{
-                      color: "#1B263B",
+                      color: theme.palette.text.main,
                       lineHeight: "30px",
                       textTransform: "uppercase",
                       fontSize: "30px",
@@ -128,7 +128,7 @@ export default function Hero() {
                   <Typography
                     variant="span"
                     sx={{
-                      color: "#1B263B",
+                      color: theme.palette.text.main,
                       fontSize: "18px",
                       textTransform: "capitalize",
                       [theme.breakpoints.down("sm")]: {
@@ -144,7 +144,7 @@ export default function Hero() {
                       width: "50%",
                       mt: 3,
                       textTransform: "capitalize",
-                      backgroundColor: "#1B263B",
+                      backgroundColor: theme.palette.text.main,
                       fontWeight: 600,
                       fontSize: "16px",
                       lineHeight: "26px",
@@ -189,7 +189,7 @@ export default function Hero() {
               <Typography
                 variant="caption"
                 sx={{
-                  color: theme.palette.neutral.main,
+                  color: theme.palette.grey.main,
                   fontSize: "18px",
                   textTransform: "uppercase",
                 }}
@@ -247,7 +247,7 @@ export default function Hero() {
               <Typography
                 variant="caption"
                 sx={{
-                  color: theme.palette.neutral.main,
+                  color: theme.palette.grey.main,
                   fontSize: "18px",
                   textTransform: "uppercase",
                 }}
