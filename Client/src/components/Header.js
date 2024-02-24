@@ -48,7 +48,7 @@ export default function Header() {
         <Stack direction={"row"} alignItems={"center"}>
           <Typography
             sx={{
-              bgcolor: "#D23F57",
+              bgcolor: theme.palette.text.yellow,
               borderRadius: "12px",
               p: "3px 10px",
               mr: 2,

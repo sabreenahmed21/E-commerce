@@ -65,7 +65,13 @@ export default function Nav() {
   ];
 
   return (
-    <Box sx={{ paddingBottom: "20px" }}>
+    <Box
+      sx={{
+        paddingBottom: "20px",
+        backgroundColor:
+          localStorage.getItem("currentMode") === "light" && "#fff",
+      }}
+    >
       <Container
         sx={{
           display: "flex",

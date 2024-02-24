@@ -52,7 +52,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const options = ["All Categories", "Electronies", "Clothes"];
-
 export default function SearchComponent() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(0);

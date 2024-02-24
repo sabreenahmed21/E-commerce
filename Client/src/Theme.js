@@ -19,9 +19,9 @@ const tokensDark = {
     900: "#00092f",
   },
   secondary: {
-    0: "#415a77",
-    100: "#1b263b",
-  },
+    0: "#415a77",//light header
+    100: "#1b263b",//dark header
+  }
 };
 
 // function that reverses the color palette
@@ -64,12 +64,13 @@ export const themeSettings = (mode) => {
             light: tokensDark.grey[200],
           },
           background: {
-            default: tokensDark.grey[10],
-            alt: tokensDark.grey[0],
+            default: tokensDark.grey[10],//grey
+            alt: tokensDark.grey[0],//white
           },
           text: {
-            light: '#2b3445',
-            main: "#1b263b"
+            light: '#2b3445',//light blue
+            main: "#1b263b",//dark dark blue
+            yellow: '#CCA752'
           }
         }
         :{
@@ -89,12 +90,13 @@ export const themeSettings = (mode) => {
             light: tokensDark.grey[900],
           },
           background: {
-            default: tokensDark.primary[900],
-            alt: tokensDark.grey[1000],
+            default: tokensDark.primary[900],//dark blue
+            alt: tokensDark.grey[1000],//black
           },
           text: {
             light: '#fff',
-            main: "#1b263b"
+            main: "#1b263b",//dark dark blue
+            yellow: '#CCA752'
           }
         }),
     },

@@ -2,7 +2,6 @@
 import {
   Badge,
   Box,
-  CardMedia,
   Container,
   Drawer,
   IconButton,
@@ -11,7 +10,7 @@ import {
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { Close } from "@mui/icons-material";
@@ -43,22 +42,24 @@ export default function Header2() {
     }
     setState({ ...state, [anchor]: open });
   };
-
   const isLargeScreen = useMediaQuery("(min-width:769px)");
+  const theme = useTheme();
+
   return (
-    <Box sx={{ py: "20px" }}>
+    <Box
+      sx={{
+        py: "20px",
+        backgroundColor:
+          localStorage.getItem("currentMode") === "light" && "#fff",
+      }}
+    >
       <Container
         sx={{
           display: "flex",
           justifyContent: "space-between",
         }}
       >
-        <CardMedia
-          component="img"
-          image={logo}
-          alt="logo"
-          sx={{ width: "auto" }}
-        />
+        <img src={logo} alt="logo" sx={{ width: "auto" }} />
         {isLargeScreen ? (
           <SearchComponent />
         ) : (
@@ -89,7 +90,14 @@ export default function Header2() {
         </Drawer>
         <Stack direction={"row"}>
           <IconButton aria-label="cart" sx={{ marginRight: "8px" }}>
-            <StyledBadge badgeContent={3} color="error">
+            <StyledBadge
+              badgeContent={3}
+              sx={{
+                ".MuiBadge-badge": {
+                  backgroundColor: theme.palette.text.yellow,
+                },
+              }}
+            >
               <ShoppingCartIcon />
             </StyledBadge>
           </IconButton>

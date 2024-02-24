@@ -28,7 +28,7 @@ export default function Hero() {
   const theme = useTheme();
   const isLargeScreen = useMediaQuery("(min-width:900px)");
   return (
-    <Box sx={{ backgroundColor: theme.palette.background.default }}>
+    <Box>
       <Container
         sx={{
           display: isLargeScreen ? "grid" : "flex",
@@ -119,7 +119,7 @@ export default function Hero() {
                     <Typography
                       variant="span"
                       sx={{
-                        color: red[800],
+                        color: theme.palette.text.yellow,
                       }}
                     >
                       {item.discount} off
