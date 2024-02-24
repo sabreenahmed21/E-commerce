@@ -113,7 +113,7 @@ export default function Main() {
           },
         }}
       >
-        {["ww", "ee", "rr", "tt", "tt", "rr", "yy"].map((item, id) => {
+        {["ww", "ee", "rr", "tt"].map((item, id) => {
           return (
             <>
               <Card
@@ -151,20 +151,26 @@ export default function Main() {
                     sx={{
                       textTransform: "capitalize",
                       gap: "4px",
-                      fontWeight: 500,
+                      fontWeight: 600,
                       padding: "7px",
-                      backgroundColor: theme.palette.text.main,
-                      color: "#fff",
-                      ":hover": { backgroundColor: theme.palette.text.main },
+                      color: theme.palette.text.main,
+                      backgroundColor: "#fff",
+                      borderColor: theme.palette.text.main,
+                      borderStyle: "solid",
+                      borderWidth: "1.5px",
+                      ":hover": {
+                        backgroundColor: theme.palette.text.main,
+                        color: "#fff",
+                        transition: "all  0.5s  ease-in-out",
+                      },
                     }}
-                    variant="contained"
                   >
                     <AddShoppingCartIcon fontSize="small" />
                     add to cart
                   </Button>
                   <Rating
                     name="read-only"
-                    value={4.5}
+                    value={3.5}
                     readOnly
                     precision={0.5}
                     sx={{ fontSize: "1.4rem" }}

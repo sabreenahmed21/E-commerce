@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap");
 
 * {
   box-sizing: border-box;
@@ -11,22 +11,25 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-.toggleButton{
+.toggleButton {
   border: 1px solid #777 !important;
   border-radius: 10px !important;
 }
 
-
-.qq{
-  border: 1px solid green;
+/* Scroll bar */
+::-webkit-scrollbar {
+  width: 0.7rem;
 }
 
+::-webkit-scrollbar-track {
+  border: 7px solid #777;
+  border-radius: 1rem;
+}
 
-
-
-
-
-
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #1b263b7c;
+}

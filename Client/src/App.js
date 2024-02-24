@@ -9,6 +9,7 @@ import Nav from "components/Nav.js";
 import Header from "components/Header.js";
 import Header2 from "components/Header2.js";
 import Footer from "pages/Footer.js";
+import ScrollToTop from "components/ScrollToTop.js";
 
 export default function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -23,6 +24,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
+        <ScrollToTop />
         <Footer/>
       </ThemeProvider>
     </BrowserRouter>
